@@ -19,13 +19,13 @@ class CreateStudentsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('student_number');
-            $table->unsignedBigInteger('class_id');
+            $table->unsignedBigInteger('klas_id');
             $table->unsignedBigInteger('user_id');
 
 
-            $table->foreign('class_id')
+            $table->foreign('klas_id')
                     ->references('id')
-                    ->on('classes');
+                    ->on('klassen');
 
             $table->foreign('user_id')
                     ->references('id')

@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Student extends Model
+{
+    use HasFactory;
+
+    protected $table = ['students'];
+    protected $fillable = ['first_name', 'last_name', 'student_number', 'klas_id', 'user_id'];
+
+
+    public function klas(){
+    	return $this->hasOne('\App\Models\Klas', 'klas_id');
+    }
+
+    public function user(){
+    	return $this->hasOne('\App\Models\User', 'user_id');
+    }
+}
