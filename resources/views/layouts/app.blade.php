@@ -40,7 +40,6 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                <div class="buttons">
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -50,14 +49,11 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                        </div>
-                        <div class="register-button">
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                        </div>
                 
                         @else
                             <li class="nav-item dropdown">
@@ -78,7 +74,6 @@
                                 </div>
                             </li>
                         @endguest
-                    </div>
                     </ul>
                 </div>
             </div>
