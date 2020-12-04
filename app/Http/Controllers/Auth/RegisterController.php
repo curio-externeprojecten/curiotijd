@@ -64,10 +64,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if(isset($data['admin_checkbox'])){
+            $admin = true;
+        }else{
+            $admin = false;
+        }
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'admin' => $admin,
         ]);
     }
 }

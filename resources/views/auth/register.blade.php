@@ -88,6 +88,16 @@
                             </div>
                         </div>
 
+                        {{-- @if (Auth::user()->name == "superadmin")  --}}
+                            <div class="form-group row">
+                                <label for="admin-checkbox" class="col-md-4 col-form-label text-md-right">{{ __('Admin') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="admin-checkbox" type="checkbox" class="form-control" name="admin_checkbox">
+                                </div>
+                            </div>
+                        {{-- @endif  --}}
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
