@@ -19,11 +19,12 @@
     </div>
     <div class="gegevens col-1">
         <h2>Gegevens</h2>
-    <p>Naam: {{$students}}</p>
-        <p>Achternaam:</p>
-        <p>Klas:</p>
-        <p>Mentor:</p>  
-        <p>Leerjaar:</p>
+            
+                <p>voornaam: {{$student->first_name}}</p>
+                <p>Achternaam: {{$student->last_name}}</p>
+                <p>Klas: {{$student->klas_id}}</p> 
+                 <p>Studentnummer: {{$student->student_number}}</p>
+
     </div>
 </div>
 
