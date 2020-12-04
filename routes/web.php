@@ -21,7 +21,7 @@ Route::get('dashboard', function () {
     return view('student.index');
 });
 
-Route::get('leaderboard', [App\Http\Controllers\LeaderboardController::class, 'index']);
+Route::resource('leaderboard', App\Http\Controllers\LeaderboardController::class);
 
 Auth::routes();
 
