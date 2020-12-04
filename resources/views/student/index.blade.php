@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Dashboard</h1>
+<div class="text-center">
+    <h1>Dashboard</h1> 
+</div>
+         
+
 <div class="row">
     <div class="badges col-5">
         <h2>Behaalde badges:</h2>
@@ -13,15 +17,16 @@
         <img src="" alt="">
         <p>Geen challenges beschikbaar</p>
     </div>
-    <div class="gegevens col-2">
+    <div class="gegevens col-1">
         <h2>Gegevens</h2>
-        <p>Naam:</p>
+    <p>Naam: {{$students}}</p>
         <p>Achternaam:</p>
         <p>Klas:</p>
-        <p>Mentor:</p>
+        <p>Mentor:</p>  
         <p>Leerjaar:</p>
     </div>
 </div>
+
 @endsection
 
 

@@ -17,9 +17,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('dashboard', function () {
-    return view('student.index');
-});
+
+Route::resource('dashboard', App\Http\Controllers\dashboardController::class);
 
 Route::resource('leaderboard', App\Http\Controllers\LeaderboardController::class);
 
