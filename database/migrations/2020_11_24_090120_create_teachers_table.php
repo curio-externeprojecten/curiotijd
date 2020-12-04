@@ -21,14 +21,9 @@ class CreateTeachersTable extends Migration
             $table->unsignedBigInteger('klas_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->foreign('klas_id')
-                    ->references('id')
-                    ->on('klassen');
-
             $table->foreign('user_id')
                     ->references('id')
                     ->on('users');
-
         });
     }
 
