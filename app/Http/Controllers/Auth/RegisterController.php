@@ -39,7 +39,10 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+<<<<<<< HEAD
         //$this->middleware('admin');
+=======
+>>>>>>> master
         $this->middleware('guest');
     }
 
