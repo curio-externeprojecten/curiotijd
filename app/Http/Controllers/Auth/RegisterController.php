@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -38,7 +39,12 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        if (isset(Auth::user()->name)){
+            $this->middleware('admin');
+        }
+        else{
+            $this->middleware('guest');
+        }
     }
 
     /**
@@ -69,7 +75,7 @@ class RegisterController extends Controller
         }else{
             $admin = false;
         }
-        
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
