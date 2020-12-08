@@ -1,0 +1,25 @@
+.navbar{
+    background-color: #01367C;
+}
+.navbar h1{
+    color: #BEEF08;
+    margin-bottom: 0px;
+}
+.navbar a{
+    color: #BEEF08;
+}
+.dashboardContent{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+.headerContent{
+    display: flex;
+    justify-content: center;
+    padding-left: 600px;
+
+}
+.headerContent h4{
+    margin-top: 10px;
+    padding-left: 400px;
+}

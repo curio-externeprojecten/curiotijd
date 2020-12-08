@@ -1,23 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="text-center">
+<div class="headerContent">
     <h1>Dashboard</h1> 
+    <h4>Welkom {{$student->first_name}}</h4>
 </div>
          
 
-<div class="row">
-    <div class="badges col-5">
+<div class="dashboardContent">
+    <div class="badges">
         <h2>Behaalde badges:</h2>
         <img src="https://i.ibb.co/4fYy1gN/image.png" alt="Curio">
         <p>Help, ik zit op curio</p>
     </div>
-    <div class="challenges col-5">
+    <div class="challenges">
         <h2>Challenges:</h2>
         <img src="" alt="">
         <p>Geen challenges beschikbaar</p>
     </div>
-    <div class="gegevens col-1">
+    <div class="studentInformation">
         <h2>Gegevens</h2>
             
                 <p>voornaam: {{$student->first_name}}</p>
