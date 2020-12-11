@@ -28,3 +28,21 @@
     padding: 10px 10px;
     height: 210px;
 }
+/* leaderboard css */
+.leaderboard{
+    margin-left: 30px;
+}
+.leaderboard h1{
+    text-align: center;
+}
+.leaderboard p{
+    font-weight: bold;
+}
+.leaderboard hr{
+    height: 0px;
+    width: 250px;
+    margin-left: 0px;
+    border: none;
+    border-top: 2px solid ;
+}
+/* end css leaderboard */

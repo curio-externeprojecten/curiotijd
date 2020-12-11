@@ -1,3 +1,7 @@
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('css/custom.css')}}" rel="stylesheet">
+
+<div class="leaderboard">
 <h1>Leaderboard</h1>
 @foreach($students as $student)
 <p>Naam: {{$student->first_name}} {{$student->last_name}}</p>
@@ -10,4 +14,5 @@
 <p>Klas: {{$student->klas_id}}</p>
 <hr>
 @endforeach
+</div>
 {{-- TO DO: leaderboard uit kunnen zetten! --}}
