@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 
 class LeaderboardController extends Controller
 {
-    public function index(){
-        $students = \DB::table('students')->take(10)->get();
-        // $achievements = \DB::table('achievements')->orderBy('id', 'DESC');
+    public function index(){    
+        $students = \App\Models\Student::with('achievements')->get();
         return view('leaderboard.index' , ['students' => $students]);
+
+
     }
 }
 
