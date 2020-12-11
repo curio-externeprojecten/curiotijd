@@ -9,7 +9,7 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $table = ['students'];
+    protected $table = 'students';
     protected $fillable = ['first_name', 'last_name', 'student_number', 'klas_id', 'user_id'];
 
 
@@ -19,5 +19,9 @@ class Student extends Model
 
     public function user(){
     	return $this->hasOne('\App\Models\User', 'user_id');
+    }
+
+    public function achievements(){
+        return $this->hasMany('\App\Models\Achievement', 'student_id');
     }
 }
