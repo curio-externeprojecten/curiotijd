@@ -23,7 +23,7 @@
             
                 <p>voornaam: {{$student->first_name}}</p>
                 <p>Achternaam: {{$student->last_name}}</p>
-                <p>Klas: {{$student->klas_id}}</p> 
+                <p>Klas: {{$student->name}}</p> 
                  <p>Studentnummer: {{$student->student_number}}</p>
 
     </div>

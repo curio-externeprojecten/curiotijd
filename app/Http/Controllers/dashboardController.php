@@ -12,7 +12,11 @@ class dashboardController extends Controller
    // }
 
     public function show($id){
-        $student = \DB::table('students')->where('id', $id)->first();
+        $student = \DB::table('students')
+        ->where('students.id', $id)
+        ->join('klassen', 'students.klas_id', '=', 'klassen.id')
+        ->select('students.*','klassen.*', 'klassen.name')
+        ->first();
         return view('student.index', ['student' => $student]);
     }
 }
