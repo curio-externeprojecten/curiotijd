@@ -19,8 +19,11 @@ class Teacher extends Model
     protected $fillable = [
         'first_name',
         'last_name',
-        'klas_id',
         'user_id',
     ];
+
+    public function user(){
+        return $this->hasOne('\App\Models\User', 'user_id');
+    }
 
 }

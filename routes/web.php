@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
 Route::resource('dashboard', App\Http\Controllers\dashboardController::class);
-
 Route::resource('leaderboard', App\Http\Controllers\LeaderboardController::class);
 
 Auth::routes();
