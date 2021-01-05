@@ -22,4 +22,6 @@ Route::resource('leaderboard', App\Http\Controllers\LeaderboardController::class
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+        return redirect('dashboard.show', ['dashboard' => Auth::id()]);
+});
