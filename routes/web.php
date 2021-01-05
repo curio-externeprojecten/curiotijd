@@ -22,6 +22,6 @@ Route::resource('leaderboard', App\Http\Controllers\LeaderboardController::class
 
 Auth::routes();
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
         return redirect('dashboard.show', ['dashboard' => Auth::id()]);
 });
