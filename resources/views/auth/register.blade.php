@@ -45,9 +45,8 @@
 
                             <div class="col-md-6">
                                 
-                                {{ dd(\App\Models\Klas::all()) }}
                                 <select>
-                                    {{-- @foreach(\App\Models\Klas::all() as $class)
+                                    {{-- @foreach($classes as $class)
                                         <option value="{​​{​​ $class->id }​​}​​">{​​{​​ $class->name }​​}​​</option>
                                     @endforeach --}}
                                 </select>
