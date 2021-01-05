@@ -53,18 +53,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        
         return Validator::make($data, [
-            // 'first_name' => ['required', 'string', 'max:255'],
-            // 'last_name' => ['required', 'string', 'max:255'],
-            // 'klas' => ['required', 'int'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
-
-            'first_name' => ['string', 'max:255'],
-            'last_name' => ['string', 'max:255'],
-            'klas' => ['int'],
-            'email' => ['string', 'email', 'max:255', 'unique:users'],
-            'password' => ['string', 'min:8', 'confirmed'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'klas' => ['int'],                                                      // TODO:: REQUIRED, ALLEEN NOG KLASSEN TOEVOEGEN 
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            
         ]);
     }
 
@@ -83,34 +79,33 @@ class RegisterController extends Controller
         }
 
         User::create([
-            'name' => $data['name'],
+            'name' => $data['first_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'admin' => $admin,
         ]);
-        $createdUser = User::where('name', '=', $data['name'])->first();
+        $createdUser = User::where('name', '=', $data['first_name'])->first();
+
+        // $classes = ['PA1B1', 'PA1B2', 'PA1B3', 'PA1B4', 'PA1K1', 'PA1K2', 'PA1G1', 'PA1G2', 'PA2B1', 'PA2B2', 'PA2K1', 'PA2K2', 'PA2G1', 'PA2G2'];
 
         if($admin){
-            \App\Models\Teacher::create([
+            return \App\Models\Teacher::create([
                 'first_name'  => $data['name'],
                 'last_name'   => $data['last_name'],
                 'created_at'  => now(),
                 'user_id'     => $createdUser->id,
             ]);
         }
-        
-        
-        
-        
         //else{
         //     return \App\Models\Student::create([
-        //         'first_name'  => $data['name'],
-        //         'last_name'   => $data['last_name'],     //TODO:: KLAS_ID DINGEN && INSERT IN STUDENT TABLE
+        //         'first_name'  => $data['first_name'],
+        //         'last_name'   => $data['last_name'],     
         //         'created_at'  => now(),
         //         'klas_id'     => $data['klas_id'],
         //         'user_id'     => $id->id,
         //     ]);
         // }
-
     }
+
+    
 }

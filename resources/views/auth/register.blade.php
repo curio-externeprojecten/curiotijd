@@ -16,7 +16,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam') }}</label>
 
                             <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="first_name" autofocus>
+                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('name') }}" required autocomplete="first_name" autofocus>
 
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
@@ -44,10 +44,14 @@
                             <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Klas') }}</label>
 
                             <div class="col-md-6">
-
+                                
+                                {{ dd(\App\Models\Klas::all()) }}
                                 <select>
-                                        <option value=""></option>
+                                    {{-- @foreach(\App\Models\Klas::all() as $class)
+                                        <option value="{​​{​​ $class->id }​​}​​">{​​{​​ $class->name }​​}​​</option>
+                                    @endforeach --}}
                                 </select>
+
                                 <span class="invalid-feedback" role="alert">
                                     <strong></strong>
                                 </span>
