@@ -77,7 +77,7 @@
             </div>
         </nav>
         @auth
-<a href="{{ route('leaderboard.show', ['dashboard'=> Auth::id()])}}"class="btn btn-info">Ga naar leaderboard</a>
+<a href="{{ route('leaderboard.show', ['leaderboard'=> Auth::id()])}}"class="btn btn-info">Ga naar leaderboard</a>
 @endauth
 
         <main class="py-4">
