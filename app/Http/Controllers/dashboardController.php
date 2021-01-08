@@ -20,3 +20,4 @@ class dashboardController extends Controller
         return view('student.index', ['student' => $student]);
     }
 }
+

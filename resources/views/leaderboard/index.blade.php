@@ -14,7 +14,11 @@
 <p>Klas: {{$student->klas_id}}</p>
 <hr>
 @endforeach
+
+@auth
 <a href="{{ route('dashboard.show', ['dashboard'=> Auth::id()])}}">Dasboard</a>
+@endauth
+
 </div>
 
 {{-- TO DO: leaderboard uit kunnen zetten! --}}
