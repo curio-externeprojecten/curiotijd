@@ -16,7 +16,7 @@
 @endforeach
 
 @auth
-<a href="{{ route('dashboard.show', ['dashboard'=> Auth::id()])}}">Dasboard</a>
+<a href="{{ route('dashboard.show', ['dashboard'=> Auth::id()])}}"class="btn btn-info">Dashboard</a>
 @endauth
 
 </div>
