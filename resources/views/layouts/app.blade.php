@@ -77,12 +77,15 @@
             </div>
         </nav>
         @auth
-<a href="{{ route('leaderboard.show', ['leaderboard'=> Auth::id()])}}"class="btn btn-info">Ga naar leaderboard</a>
+
 @endauth
 
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+    <footer>
+        <a href="{{ route('leaderboard.show', ['leaderboard'=> Auth::id()])}}"class="btn btn-info">Ga naar leaderboard</a>
+    </footer>
 </body>
 </html>
