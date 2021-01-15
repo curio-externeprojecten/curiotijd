@@ -85,7 +85,7 @@
         </main>
     </div>
     <footer>
-        <a href="{{ route('leaderboard.show', ['leaderboard'=> Auth::id()])}}"class="btn btn-info">Ga naar leaderboard</a>
+        <a href="{{route('leaderboard.show', ['leaderboard => $leaderboard->id'])}}">Ga naar leaderboard</a>
     </footer>
 </body>
 </html>
