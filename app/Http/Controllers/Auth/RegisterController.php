@@ -35,6 +35,9 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+    // protected function redirectTo(){
+    //     return \Redirect::to('/login')->with('msg', 'Account succesvol aangemaakt!');
+    // }
 
     /**
      * Create a new controller instance.
@@ -56,12 +59,12 @@ class RegisterController extends Controller
     {
         
         return Validator::make($data, [
-            'first_name' => [ 'string', 'max:255'],
-            'last_name' => [ 'string', 'max:255'],
-            'klas' => [ 'int'],
-            'student_number' => ['string', 'max:255'],                                                      
-            'email' => [ 'string', 'email', 'max:255', 'unique:users'],
-            'password' => [ 'string', 'min:8', 'confirmed'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'class_id' => ['required', 'int'],
+            'student_number' => ['required', 'string', 'max:255'],                                                      
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
             
         ]);
     }
@@ -80,7 +83,6 @@ class RegisterController extends Controller
             $admin = false;
         }
 
-        //dd($data);
         User::create([
             'name' => $data['first_name'],
             'email' => $data['email'],
@@ -88,6 +90,7 @@ class RegisterController extends Controller
             'admin' => $admin,
         ]);
         $createdUser = User::where('name', '=', $data['first_name'])->first();
+        
 
         if($admin){
             return \App\Models\Teacher::create([
@@ -104,7 +107,7 @@ class RegisterController extends Controller
                 'student_number' => $data['student_number'],     
                 'created_at'  => now(),
                 'klas_id'     => $data['class_id'],
-                'user_id'     => Auth::id(),
+                'user_id'     => $createdUser->id,
             ]);
         }
     }    

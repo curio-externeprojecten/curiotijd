@@ -13,7 +13,7 @@ class DashboardController extends Controller
 
     public function show($id){
         $student = \DB::table('students')
-        ->where('students.id', $id)
+        ->where('students.user_id', $id)
         ->join('klassen', 'students.klas_id', '=', 'klassen.id')
         ->select('students.*','klassen.*', 'klassen.name')
         ->first();

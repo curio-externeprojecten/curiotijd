@@ -2,12 +2,16 @@
 
 @section('content')
 <div class="container">
+    {{-- @if(Session::has('msg'))
+        {{ Session::get('msg') }}
+    @elseif(Session::has('warning'))
+        {{Session::get('warning')}}
+    @endif --}}
     <div class="row justify-content-center">
-        
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
-
+                
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
