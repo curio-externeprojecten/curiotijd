@@ -44,16 +44,29 @@
                             <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Klas') }}</label>
 
                             <div class="col-md-6">
-                                
-                                <select>
-                                    {{-- @foreach($classes as $class)
-                                        <option value="{​​{​​ $class->id }​​}​​">{​​{​​ $class->name }​​}​​</option>
-                                    @endforeach --}}
+                                <select name="class_id">
+                                    @foreach($classes as $class)
+                                        <option value={{$class->id}}>{{$class->name}}​​</option>
+                                    @endforeach
                                 </select>
 
                                 <span class="invalid-feedback" role="alert">
                                     <strong></strong>
                                 </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Studentnummer') }}</label>
+
+                            <div class="col-md-6">
+
+                                <input id="student_number" type="text" class="form-control @error('student_number') is-invalid @enderror" name="student_number" required autocomplete="student_number">
+                                @error('student_number')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 
