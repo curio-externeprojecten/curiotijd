@@ -34,10 +34,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-    // protected function redirectTo(){
-    //     return \Redirect::to('/login')->with('msg', 'Account succesvol aangemaakt!');
-    // }
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo(){
+        \Session::flash('msg', 'Je account is succesvol aangemaakt!');
+        return '/login';
+    }
 
     /**
      * Create a new controller instance.

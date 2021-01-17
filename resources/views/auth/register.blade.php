@@ -40,21 +40,29 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Klas') }}</label>
+                        @if (!isset(Auth::user()->name))
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Klas') }}</label>
 
-                            <div class="col-md-6">
-                                <select name="class_id">
-                                    @foreach($classes as $class)
-                                        <option value={{$class->id}}>{{$class->name}}​​</option>
-                                    @endforeach
-                                </select>
+                                <div class="col-md-6 d-flex align-items-center">
+                                    @if(isset($classes))
+                                        <select name="class_id">
+                                            @foreach($classes as $class)
+                                                <option value={{$class->id}}>{{$class->name}}​​</option>
+                                            @endforeach
+                                        </select>
+                                    @else
+                                        <p class="mb-0">Klassen zijn niet gevonden!</p>
+                                    @endif
 
-                                <span class="invalid-feedback" role="alert">
-                                    <strong></strong>
-                                </span>
+                                    @error('class_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
+                        @endif
 
                         <div class="form-group row">
                             <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Studentnummer') }}</label>

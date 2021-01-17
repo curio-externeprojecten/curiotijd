@@ -23,6 +23,18 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->boolean('admin')->nullable();
         });
+        // DB::table('users')->insert(
+        //     array(
+        //         'name' => 'superadmin',
+        //         'email' => 'curiotijd@gmail.com',
+        //         'email_verified_at' => now(),
+        //         'password' => Hash::make(),
+        //         'remember_token' => null,
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //         'admin' => true
+        //     )
+        // );
     }
 
     /**

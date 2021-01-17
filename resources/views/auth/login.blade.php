@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-    {{-- @if(Session::has('msg'))
-        {{ Session::get('msg') }}
+     @if(Session::has('msg'))
+        <p style= "font-size: 2em; height: 50px; color: lime;" class="text-center"> {{ Session::get('msg') }} </p>
     @elseif(Session::has('warning'))
         {{Session::get('warning')}}
-    @endif --}}
+    @endif 
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

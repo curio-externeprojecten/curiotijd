@@ -16,6 +16,11 @@ class CreateAchievementsTable extends Migration
         Schema::create('achievements', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('student_id');
+
+            $table->foreign('student_id')
+                    ->references('id')
+                    ->on('students');
         });
     }
 
