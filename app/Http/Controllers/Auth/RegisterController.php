@@ -84,13 +84,13 @@ class RegisterController extends Controller
             $admin = false;
         }
 
-        User::create([
+        $user = User::create([
             'name' => $data['first_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'admin' => $admin,
         ]);
-        $createdUser = User::where('name', '=', $data['first_name'])->first();
+        // $createdUser = User::where('name', '=', $data['first_name'])->first();
         
 
         if($admin){
@@ -99,7 +99,7 @@ class RegisterController extends Controller
                 'last_name'   => $data['last_name'],
                 'created_at'  => now(),
                 'updated_at' => now(),
-                'user_id'     => $createdUser->id,
+                'user_id'     => $user->id,
             ]);
         }
         else{
@@ -109,7 +109,7 @@ class RegisterController extends Controller
                 'student_number' => $data['student_number'],     
                 'created_at'  => now(),
                 'klas_id'     => $data['class_id'],
-                'user_id'     => $createdUser->id,
+                'user_id'     => $user->id,
             ]);
         }
     }    
