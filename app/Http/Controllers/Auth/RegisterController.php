@@ -62,8 +62,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'class_id' => ['required', 'int'],
-            'student_number' => ['required', 'string', 'max:255'],                                                      
+            'class_id' => ['int'],
+            'student_number' => ['string', 'max:255'],                                                      
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             
@@ -94,15 +94,16 @@ class RegisterController extends Controller
         
 
         if($admin){
-            return \App\Models\Teacher::create([
-                'first_name'  => $data['name'],
+            return Teacher::create([
+                'first_name'  => $data['first_name'],
                 'last_name'   => $data['last_name'],
                 'created_at'  => now(),
+                'updated_at' => now(),
                 'user_id'     => $createdUser->id,
             ]);
         }
         else{
-            return \App\Models\Student::create([
+            return Student::create([
                 'first_name'  => $data['first_name'],
                 'last_name'   => $data['last_name'],
                 'student_number' => $data['student_number'],     

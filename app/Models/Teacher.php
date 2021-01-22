@@ -9,7 +9,8 @@ class Teacher extends Model
 {
     use HasFactory;
 
-
+    protected $table = 'teachers';
+    public $timestamps = false;
     /**
     * The attributes that are mass assignable.
     *
@@ -20,6 +21,8 @@ class Teacher extends Model
         'first_name',
         'last_name',
         'user_id',
+        'created_at',
+        'updated_at'
     ];
 
     public function user(){
