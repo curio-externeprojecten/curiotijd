@@ -51,6 +51,18 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $classes= klas::select('name','id')->get();
+        return view('auth.register', compact('classes'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -118,8 +130,5 @@ class RegisterController extends Controller
             ]);
         }
         return $user;
-
-        $classes= klas::select('name','id')->get();
-        return view('id',compact('classes'));
-    }    
+    }
 }
