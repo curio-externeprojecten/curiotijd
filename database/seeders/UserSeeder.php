@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
-
-class StudentSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,15 +15,16 @@ class StudentSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::Create();
-        for ($i = 0; $i < 50; $i++){
-        	\App\Models\Student::insert([
+        for ($i = 0; $i < 75; $i++){
+        	\App\Models\Users::insert([
         		'first_name' 		=> $faker->firstName,
                 'last_name' 		=> $faker->lastName,
-        		'student_number' 	=> $faker->unique()->randomNumber(6),
-        		'classes_id'		=> $faker->numberBetween(1, 12),
-        		'user_id'			=> $faker->unique()->numberBetween(26, 75),
+                'email' 		    => $faker->email,
+                'email_verified_at' => null,
+                'password' 		    => Hash::make($faker->password),
                 'created_at' 		=> $faker->dateTime,
-                'updated_at' 		=> $faker->dateTime
+                'updated_at' 		=> $faker->dateTime,
+                'admin' 		    => null
         	]);
         }
     }

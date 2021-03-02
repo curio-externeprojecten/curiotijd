@@ -13,10 +13,11 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam') }}</label>
+                            <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam') }}</label>
 
                             <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('name') }}" required autocomplete="first_name" autofocus>
+                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" 
+                                name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
 
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
@@ -27,11 +28,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Achternaam') }}</label>
+                            <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Achternaam') }}</label>
 
                             <div class="col-md-6">
 
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" required autocomplete="last_name">
+                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" 
+                                name="last_name"  value="{{ old('last_name') }}" required autocomplete="last_name">
                                 @error('last_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -47,6 +49,7 @@
                                 <div class="col-md-6 d-flex align-items-center">
                                     @if(isset($classes))
                                         <select name="class_id">
+                                        
                                             @foreach($classes as $class)
                                                 <option value={{$class->id}}>{{$class->name}}​​</option>
                                             @endforeach
@@ -70,7 +73,9 @@
 
                                 <div class="col-md-6">
 
-                                    <input id="student_number" type="text" class="form-control @error('student_number') is-invalid @enderror" name="student_number" required autocomplete="student_number">
+                                    <input id="student_number" type="text" class="form-control @error('student_number')
+                                     is-invalid @enderror" name="student_number"
+                                     value="{{ old('student_number') }}" required autocomplete="student_number">
                                     @error('student_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -84,7 +89,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" 
+                                name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

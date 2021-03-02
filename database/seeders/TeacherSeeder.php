@@ -4,8 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-
-class StudentSeeder extends Seeder
+class TeacherSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,13 +14,11 @@ class StudentSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::Create();
-        for ($i = 0; $i < 50; $i++){
-        	\App\Models\Student::insert([
-        		'first_name' 		=> $faker->firstName,
+        for ($i = 0; $i < 25; $i++){
+        	\App\Models\Teacher::insert([
+                'first_name' 		=> $faker->firstName,
                 'last_name' 		=> $faker->lastName,
-        		'student_number' 	=> $faker->unique()->randomNumber(6),
-        		'classes_id'		=> $faker->numberBetween(1, 12),
-        		'user_id'			=> $faker->unique()->numberBetween(26, 75),
+                'user_id'			=> $faker->unique()->numberBetween(1, 25),
                 'created_at' 		=> $faker->dateTime,
                 'updated_at' 		=> $faker->dateTime
         	]);

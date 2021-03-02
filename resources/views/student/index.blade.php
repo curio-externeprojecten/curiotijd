@@ -28,7 +28,9 @@
 
     </div>
 </div>
-
+<footer class="text-center">
+        <a href="{{route('leaderboard.show', ['leaderboard => $leaderboard->id'])}}"class="btn btn-info">Ga naar leaderboard</a>
+    </footer>
 @endsection
 
 

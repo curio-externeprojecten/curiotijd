@@ -10,10 +10,10 @@ class LeaderboardController extends Controller
         $this->middleware('auth');
     }
     
-    public function index(){    
+    public function show(){    
         $students = \App\Models\Student::withCount('achievements')
                     ->orderBy('achievements_count', 'desc')
-                    ->limit(10)
+                    ->limit(5)
                     ->get();
         return view('leaderboard.index' , ['students' => $students]);
 

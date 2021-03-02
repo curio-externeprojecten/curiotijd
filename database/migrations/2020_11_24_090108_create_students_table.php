@@ -19,17 +19,19 @@ class CreateStudentsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('student_number');
-            $table->unsignedBigInteger('klas_id');
+            $table->unsignedBigInteger('classes_id');
             $table->unsignedBigInteger('user_id');
 
 
-            $table->foreign('klas_id')
+            $table->foreign('classes_id')
                     ->references('id')
-                    ->on('klassen');
+                    ->on('classes');
 
-            $table->foreign('user_id')
+                    $table->foreign('user_id')
                     ->references('id')
                     ->on('users');
+
+            
         });
     }
 

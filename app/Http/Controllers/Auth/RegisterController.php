@@ -36,9 +36,10 @@ class RegisterController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo(){
-        \Session::flash('msg', 'Je account is succesvol aangemaakt!');
-        return '/login';
+        $userID = Auth::user()->id;
+        return "dashboard/$userID";
     }
+
 
     /**
      * Create a new controller instance.
@@ -62,7 +63,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'class_id' => ['int'],
+            'classes_id' => "1",
             'student_number' => ['string', 'max:255'],                                                      
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -76,8 +77,10 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+
     protected function create(array $data)
     {   
+       
         if(isset($data['admin_checkbox'])){
             $admin = true;      
         }else{
@@ -85,16 +88,17 @@ class RegisterController extends Controller
         }
 
         $user = User::create([
-            'name' => $data['first_name'],
+            'first_name'  => $data['first_name'],
+            'last_name'   => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'admin' => $admin,
         ]);
         // $createdUser = User::where('name', '=', $data['first_name'])->first();
-        
+
 
         if($admin){
-            return Teacher::create([
+             Teacher::create([
                 'first_name'  => $data['first_name'],
                 'last_name'   => $data['last_name'],
                 'created_at'  => now(),
@@ -103,14 +107,19 @@ class RegisterController extends Controller
             ]);
         }
         else{
-            return Student::create([
+             Student::create([
                 'first_name'  => $data['first_name'],
                 'last_name'   => $data['last_name'],
                 'student_number' => $data['student_number'],     
                 'created_at'  => now(),
-                'klas_id'     => $data['class_id'],
-                'user_id'     => $user->id,
+                'updated_at' => now(),
+                'classes_id'     => "1",
+                'user_id'     => $user->id
             ]);
         }
+        return $user;
+
+        $classes= klas::select('name','id')->get();
+        return view('id',compact('classes'));
     }    
 }

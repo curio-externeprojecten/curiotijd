@@ -10,11 +10,11 @@ class Student extends Model
     use HasFactory;
 
     protected $table = 'students';
-    protected $fillable = ['first_name', 'last_name', 'student_number', 'klas_id', 'user_id'];
+    protected $fillable = ['first_name', 'last_name', 'student_number', 'classes_id', 'user_id'];
 
 
     public function klas(){
-    	return $this->hasOne('\App\Models\Klas', 'klas_id');
+    	return $this->hasOne('\App\Models\Klas', 'classes_id');
     }
 
     public function user(){
